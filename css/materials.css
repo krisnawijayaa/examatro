@@ -1,0 +1,33 @@
+/* ===== MATERIAL: felt, kartu, CRT (Fase 2) ===== */
+/* Felt: anyaman kain + marmer pelan + vignette */
+.table{background:radial-gradient(ellipse at 50% 42%,transparent 38%,#02100a 125%),url(../assets/green-felt.webp) 0 0/256px,#0f3a30;
+ box-shadow:inset 0 0 0 6px #4a2f1b,inset 0 0 0 9px var(--outline),inset 0 0 160px #000d}
+.table::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%23f2b84b' stroke-opacity='.10' stroke-width='1.5'%3E%3Ccircle cx='200' cy='200' r='170'/%3E%3Ccircle cx='200' cy='200' r='120' stroke-dasharray='3 9'/%3E%3Cpath d='M200 20v60M200 320v60M20 200h60M320 200h60M200 90l-14 40h28z'/%3E%3C/g%3E%3C/svg%3E") center/min(78vh,520px) no-repeat}
+.table{overflow:hidden}
+.table::after{inset:-12%;background:url(../assets/felt-marble.webp) 0 0/720px;mix-blend-mode:soft-light;opacity:.38;animation:marble 60s linear infinite alternate}
+@keyframes marble{to{transform:translate3d(-6%,4%,0) rotate(3deg)}}
+/* Scanline CRT tipis di atas seluruh layar (tidak menangkap klik) */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:30;background:repeating-linear-gradient(0deg,transparent 0 2px,#0000001c 2px 3px);opacity:.55}
+/* Kartu: kertas ivory + grain + tepi + outline tebal berlapis */
+.card{border:0;border-radius:var(--r-card);color:var(--suit-s);background:url(../assets/card-paper.webp) 0 0/128px,#f1e8cf}
+.card,.card:hover,.card.up,.card.right,.card.wrong{box-shadow:var(--ring,0 0 0 var(--ol) var(--outline)),inset 0 0 0 1px #fffb,inset 0 2px 3px #fff9,inset 0 -3px 4px #0002,var(--lift,var(--sh-2))}
+.card:hover{--lift:var(--sh-3)}
+.card.up{--ring:0 0 0 var(--ol) var(--outline),0 0 0 calc(var(--ol) + 3px) var(--gold),0 0 22px #f2b84bcc;--lift:var(--sh-3)}
+.card.right{--ring:0 0 0 var(--ol) var(--outline),0 0 0 calc(var(--ol) + 3px) var(--green),0 0 22px #35c27acc}
+.card.wrong{--ring:0 0 0 var(--ol) var(--outline),0 0 0 calc(var(--ol) + 3px) var(--red),0 0 16px #d9453c99}
+.card::before{inset:5px;border:1px solid #1b2a4930;border-radius:6px}
+.card::after{content:"";position:absolute;inset:0;border-radius:var(--r-card);pointer-events:none;background:url(../assets/card-edge.png) 0 0/100% 100%,url(../assets/card-grain.png) 0 0/96px;opacity:.85}
+.card[data-s="0"]{color:var(--suit-s)}.card[data-s="1"]{color:var(--suit-h)}.card[data-s="2"]{color:var(--suit-c)}.card[data-s="3"]{color:var(--suit-d)}
+.card .cn b{font-family:var(--f-display);font-weight:700}
+.card em{font-family:var(--f-label);border-top:2px solid var(--outline)}
+@media(prefers-reduced-motion:reduce){.table::after{animation:none!important}}
+/* perbaikan keterbacaan & kompak di HP */
+.hint{color:var(--cream);opacity:.9;text-shadow:0 2px 0 #000a}
+.pile{bottom:34px}
+@media(max-width:760px){
+ .plaque{padding:5px 8px}.plaque h2{font-size:17px}.plaque small{font-size:10px}
+ .tgt{padding:6px 10px;gap:3px}.tgt>b{font-size:26px}
+ .sort{padding:4px 6px}.sort small{display:none}.sort button{padding:6px 10px}
+ .center{min-height:96px}.btns{gap:8px}.btns button{min-width:0;padding:10px 14px}
+ .hud>button{padding:6px}
+}

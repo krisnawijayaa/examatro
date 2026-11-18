@@ -1,0 +1,25 @@
+/* ===== EXAMATRO DESIGN TOKENS (Fase 2) ===== dimuat SETELAH style.css agar menimpa nilai lama */
+:root{
+ /* warna */
+ --felt:#0f3a30;--felt2:#082219;--ink:#070d12;--navy:#0d1b2e;--cream:#f6efdc;--gold:#f2b84b;--red:#e0453c;--blue:#3b82f6;--green:#35c27a;
+ --outline:#12141b;                       /* outline tebal kartu & panel */
+ --suit-s:#1b2a49;--suit-h:#e0364a;--suit-c:#1d4f55;--suit-d:#f0642a;   /* warna suit */
+ /* tipografi: display = skor/rank/judul, label = HUD kecil, text = teks soal (keterbacaan) */
+ --f-display:"Pixelify Sans","Trebuchet MS",system-ui,sans-serif;
+ --f-label:"Silkscreen","Pixelify Sans",system-ui,sans-serif;
+ --f-text:"Trebuchet MS",system-ui,sans-serif;
+ --ui:var(--f-display);--card:var(--f-display);
+ /* bentuk & bayangan */
+ --r-card:10px;--r-panel:12px;--ol:3px;
+ --sh-1:0 3px 0 #0007;--sh-2:0 10px 16px #000a;--sh-3:0 22px 26px #000b;
+ /* gerak (spesifikasi animasi): hover/seleksi .12-.18s ease-out; deal .5s ease-out + stagger 70ms; skor bump .3s ease-pop;
+    celebrate .45-.6s; semua nonaktif di prefers-reduced-motion */
+ --ease-out:cubic-bezier(.2,.8,.2,1);--ease-pop:cubic-bezier(.2,1.4,.3,1);
+ --t-fast:.12s;--t-mid:.2s;--t-slow:.45s;
+}
+body{font-family:var(--f-text)}
+button,.tgt,.t,.hud,.plaque,.sign,.cm,.hn,.sort,.btns,.crow,.pt,.menu,.bank h2,.bank h3,.go,.cobtn{font-family:var(--f-display)}
+.t span,.tgt>span,.plaque small,.sort small,.meta,.note,.card em,.gr span{font-family:var(--f-label);letter-spacing:.04em}
+.q h3,.opt,.fb p,.qrow p,.bcard input,.bcard textarea,.bcard select,.errs{font-family:var(--f-text)}
+.menu h1,.sign b,.go h1{font-family:var(--f-display);font-weight:700;letter-spacing:.04em}
+button{font-weight:700;border-radius:var(--r-panel);box-shadow:0 0 0 var(--ol) var(--outline),0 4px 0 var(--ol) var(--outline)}

@@ -136,7 +136,7 @@ const menu = () => `<section class="menu"><h1>EXAMATRO</h1><p class="tag">Master
 
 function cardHTML(x, cls, attrs, st) {
   const c = `${RL(x.r)}</b><u>${SUITS[x.s]}</u></i>`;
-  return `<div class="card${x.s % 2 ? ' red' : ''}${cls}" data-m="${QB[x.id].m}" ${attrs} style="${st}"><i class="cn"><b>${c}<span class="pip">${SUITS[x.s]}</span><i class="cn bt"><b>${c}<em>${QB[x.id].m}</em></div>`;
+  return `<div class="card${x.s % 2 ? ' red' : ''}${cls}" data-m="${QB[x.id].m}" data-s="${x.s}" ${attrs} style="${st}"><i class="cn"><b>${c}<span class="pip">${SUITS[x.s]}</span><i class="cn bt"><b>${c}<em>${QB[x.id].m}</em></div>`;
 }
 function updSel() {
   document.querySelectorAll('.card[data-id]').forEach(c => c.classList.toggle('up', R.sel.includes(c.dataset.id)));
